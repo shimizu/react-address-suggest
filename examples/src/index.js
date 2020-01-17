@@ -1,11 +1,10 @@
 import React from 'react';
-import { render } from 'react-dom'
-import AddressSuggest from '../../src'
-
+import { render } from 'react-dom';
+import AddressSuggest from '../../src';
 
 const onSubmit = (d) => {
-    console.log(d);
-}
+	console.log(d);
+};
 
 const App = () => <AddressSuggest onSubmit={onSubmit} />;
 render(<App />, document.getElementById('root'));

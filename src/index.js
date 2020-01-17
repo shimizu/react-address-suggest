@@ -85,8 +85,8 @@ function AddressSuggestForm(props) {
 	};
 
 	const _onMouseOver = (e) => {
-		console.dir(e.target)
-	}
+		console.dir(e.target);
+	};
 
 	const _onSubmit = (e) => {
 		e.preventDefault();
@@ -110,7 +110,13 @@ function AddressSuggestForm(props) {
 					const className = i === suggestCurrentIndex ? 'address-value selected' : 'address-value';
 
 					return (
-						<li ref={(inst) => refs.push(inst)} className={className} key={d.uid} data-key={i} onMouseOver={_onMouseOver}>
+						<li
+							ref={(inst) => refs.push(inst)}
+							className={className}
+							key={d.uid}
+							data-key={i}
+							onMouseOver={_onMouseOver}
+						>
 							{d['都道府県名（漢字）'] + d['市区町村名（漢字）']}
 						</li>
 					);
