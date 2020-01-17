@@ -1,18 +1,23 @@
 {
 	"name": "@shimizu/react-address-suggest",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"scripts": {
 		"start": "webpack-dev-server --mode production",
 		"transpile": "babel src -d dist --copy-files",
 		"build": "webpack --mode production",
 		"deploy": "gh-pages -d examples/dist",
 		"publish-demo": "npm run build && npm run deploy",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prepublishOnly":"npm run transpile"
 	},
 	"author": "",
 	"license": "ISC",
+   "peerDependencies": {
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0"
+   },	
 	"devDependencies": {
 		"@babel/cli": "^7.8.3",
 		"@babel/core": "^7.8.3",
