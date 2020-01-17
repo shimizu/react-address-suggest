@@ -1,0 +1,21 @@
+.address-input-form {
+    width:200px;
+}
+
+.address-list:empty {
+    display: none;
+}
+.address-list {
+    width: 200px;
+    font-size: 12px;
+    max-height: 400px;
+    list-style: none;
+    text-align: left;
+    overflow-y: scroll;
+    background-color:white;
+    padding:0;
+}
+
+.selected {
+    background-color: red;
+}
