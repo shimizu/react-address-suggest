@@ -1,5 +1,5 @@
 {
-  "name": "address-suggest",
+  "name": "@shimizu/react-address-suggest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
