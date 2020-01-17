@@ -40,7 +40,7 @@ module.exports = {
 	resolve: {
 		extensions: [ '.js', '.jsx' ]
 	},
-	plugins: [ htmlWebpackPlugin ],
+	plugins: [ copyFile, htmlWebpackPlugin ],
 	devServer: {
 		contentBase: path.join(__dirname, 'examples/dist'),
 		port: 9001
