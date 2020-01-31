@@ -5,12 +5,6 @@
 npm i @shimizu/react-address-suggest
 ```
 
-* copy Address datafile
-
-```sh
-cp -r node_modules/@shimizu/react-address-suggest/dist/data/ public/data
-```
-
 ### How to use it ?
 
 ```js
