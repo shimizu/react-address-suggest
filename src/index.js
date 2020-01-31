@@ -73,7 +73,19 @@ function AddressSuggestForm(props) {
 	};
 
 	const _onMouseOver = (e) => {
-		console.dir(e.target);
+		let current = +e.target.dataset.key;
+
+		const d = suggest[current];
+		if (d) {
+			setResultData(d);
+			setShowText(d['都道府県名（漢字）'] + d['市区町村名（漢字）']);
+		}
+
+		setSuggestCurrentIndex(current);
+	};
+	const _onMouseClick = () => {
+		suggestClear();
+		onSubmit(resultData);
 	};
 
 	const _onSubmit = (e) => {
@@ -104,6 +116,7 @@ function AddressSuggestForm(props) {
 							key={d.uid}
 							data-key={i}
 							onMouseOver={_onMouseOver}
+							onClick={_onMouseClick}
 						>
 							{d['都道府県名（漢字）'] + d['市区町村名（漢字）']}
 						</li>
