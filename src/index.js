@@ -11,14 +11,11 @@ const cast = (d) => {
 	return d;
 };
 
-AddressSuggestForm.propTypes = {
-	onSubmit: PropTypes.func
-};
+import suggestData from './address-data.json';
 
 function AddressSuggestForm(props) {
 	const { onSubmit } = props;
 
-	const [ suggestData, setSuggestData ] = useState([]);
 	const [ suggest, setSUggest ] = useState([]);
 	const [ showText, setShowText ] = useState('');
 
@@ -28,15 +25,6 @@ function AddressSuggestForm(props) {
 	const [ resultData, setResultData ] = useState(null);
 
 	let refs = [];
-
-	useEffect(() => {
-		const fetchData = async () => {
-			const result = await tsv(DATA_URL, cast);
-			setSuggestData(result);
-		};
-
-		fetchData();
-	}, []);
 
 	const suggestClear = () => {
 		setSUggest([]);
@@ -125,5 +113,9 @@ function AddressSuggestForm(props) {
 		</div>
 	);
 }
+
+AddressSuggestForm.propTypes = {
+	onSubmit: PropTypes.func
+};
 
 export default AddressSuggestForm;

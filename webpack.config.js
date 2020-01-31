@@ -1,17 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 // HTMLファイルのビルド設定
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
 	template: path.join(__dirname, 'examples/src/index.html'),
 	filename: './index.html'
 });
-
-//データファイルのコピー
-const copyFile = new CopyPlugin([
-	{ from: path.join(__dirname, 'examples/dist/data'), to: path.join(__dirname, 'dist/data') }
-]);
 
 module.exports = {
 	// メインとなるJavaScriptファイル（エントリーポイント）
@@ -20,6 +14,7 @@ module.exports = {
 		path: path.join(__dirname, 'examples/dist'),
 		filename: 'bundle.js'
 	},
+	performance: { hints: false },
 	module: {
 		rules: [
 			{
@@ -40,7 +35,7 @@ module.exports = {
 	resolve: {
 		extensions: [ '.js', '.jsx' ]
 	},
-	plugins: [ copyFile, htmlWebpackPlugin ],
+	plugins: [ htmlWebpackPlugin ],
 	devServer: {
 		contentBase: path.join(__dirname, 'examples/dist'),
 		port: 9001
