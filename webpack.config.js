@@ -1,11 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 // HTMLファイルのビルド設定
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
 	template: path.join(__dirname, 'examples/src/index.html'),
 	filename: './index.html'
 });
+
+//sample用cssのコピー
+const exampleCssFileCopy = new CopyPlugin([
+	{
+		from: path.join(__dirname, 'examples/src/index.css'),
+		to: path.join(__dirname, 'examples/dist/index.css')
+	}
+]);
 
 module.exports = {
 	// メインとなるJavaScriptファイル（エントリーポイント）
@@ -25,17 +34,13 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [ 'style-loader', 'css-loader' ]
-			},
-			{
-				test: /\.(c|d|t)sv$/, // load all .csv, .dsv, .tsv files with dsv-loader
-				use: [ 'dsv-loader' ] // or dsv-loader?delimiter=,
 			}
 		]
 	},
 	resolve: {
 		extensions: [ '.js', '.jsx' ]
 	},
-	plugins: [ htmlWebpackPlugin ],
+	plugins: [ exampleCssFileCopy, htmlWebpackPlugin ],
 	devServer: {
 		contentBase: path.join(__dirname, 'examples/dist'),
 		port: 9001

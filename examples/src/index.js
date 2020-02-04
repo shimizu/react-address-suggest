@@ -6,5 +6,5 @@ const onSubmit = (d) => {
 	console.log(d);
 };
 
-const App = () => <AddressSuggest onSubmit={onSubmit} />;
+const App = () => <AddressSuggest placeholder={'test'} onSubmit={onSubmit} />;
 render(<App />, document.getElementById('root'));

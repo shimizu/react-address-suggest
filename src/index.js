@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { tsv } from 'd3-fetch';
-import './index.css';
 
 const DATA_URL = 'data/suggestData.tsv';
 const cast = (d) => {
@@ -13,8 +12,8 @@ const cast = (d) => {
 
 import suggestData from './address-data.json';
 
-function AddressSuggestForm(props) {
-	const { onSubmit } = props;
+const AddressSuggestForm = (props) => {
+	const { onSubmit, placeholder, pattern, minlength, maxlength, size } = props;
 
 	const [ suggest, setSUggest ] = useState([]);
 	const [ showText, setShowText ] = useState('');
@@ -103,6 +102,11 @@ function AddressSuggestForm(props) {
 					value={showText}
 					onChange={_onChange}
 					onKeyDown={_onKeyDown}
+					pattern={pattern}
+					placeholder={placeholder}
+					minlength={minlength}
+					maxlength={maxlength}
+					size={size}
 				/>
 			</form>
 			<ul className="address-list">
@@ -125,10 +129,15 @@ function AddressSuggestForm(props) {
 			</ul>
 		</div>
 	);
-}
+};
 
 AddressSuggestForm.propTypes = {
-	onSubmit: PropTypes.func
+	onSubmit: PropTypes.func,
+	placeholder: PropTypes.string,
+	pattern: PropTypes.string,
+	minlength: PropTypes.number,
+	maxlength: PropTypes.number,
+	size: PropTypes.number
 };
 
 export default AddressSuggestForm;
