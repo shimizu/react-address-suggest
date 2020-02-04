@@ -1,6 +1,5 @@
 ### Install using npm :
 
-* module install
 ```sh
 npm i @shimizu/react-address-suggest
 ```
@@ -25,6 +24,10 @@ function App() {
 
 export default App;
 ```
+#### example slider style
+
+[index.css](https://github.com/shimizu/react-address-suggest/blob/master/examples/src/index.css)
+
 ### Props
 
 |  属性  |  説明  |
@@ -34,3 +37,4 @@ export default App;
 |  maxlength  |  入力欄が受け付ける最大文字数 |
 |  minlength  |  入力欄が取りうる、妥当と判断される最小文字列長  |
 |  size  |  入力欄の長さを何文字分にするかを表す数値  |
+|  |  |
