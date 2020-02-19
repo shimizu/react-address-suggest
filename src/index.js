@@ -13,7 +13,7 @@ const cast = (d) => {
 import suggestData from './address-data.json';
 
 const AddressSuggestForm = (props) => {
-	const { onSubmit, placeholder, pattern, minlength, maxlength, size } = props;
+	const { onSubmit, placeholder, pattern } = props;
 
 	const [ suggest, setSUggest ] = useState([]);
 	const [ showText, setShowText ] = useState('');
@@ -104,9 +104,6 @@ const AddressSuggestForm = (props) => {
 					onKeyDown={_onKeyDown}
 					pattern={pattern}
 					placeholder={placeholder}
-					minlength={minlength}
-					maxlength={maxlength}
-					size={size}
 				/>
 			</form>
 			<ul className="address-list">
@@ -135,9 +132,6 @@ AddressSuggestForm.propTypes = {
 	onSubmit: PropTypes.func,
 	placeholder: PropTypes.string,
 	pattern: PropTypes.string,
-	minlength: PropTypes.number,
-	maxlength: PropTypes.number,
-	size: PropTypes.number
 };
 
 export default AddressSuggestForm;
